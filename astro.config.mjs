@@ -11,6 +11,7 @@ export default defineConfig({
     service: sharpImageService()
   },
   site: "https://ztasecur1ty.github.io",
+  base: "/ZTASecurity-website",
   vite: {
     plugins: [rawFonts([".ttf", ".woff"])],
     optimizeDeps: {
