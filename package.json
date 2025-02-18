@@ -1,5 +1,5 @@
 {
-  "name": "cojocarudavid.me",
+  "name": "ztasecurity",
   "version": "1.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -48,11 +48,11 @@
   "browserslist": "> 0.25%, not dead",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cojocaru-david/cojocarudavid.me.git"
+    "url": "https://github.com/ZTASecur1ty/ZTASecurity-website.git"
   },
   "bugs": {
-    "url": "https://github.com/cojocaru-david/cojocarudavid.me/issues"
+    "url": "https://ztasecurity.com"
   },
-  "homepage": "https://cojocarudavid.me",
+  "homepage": "https://ztasecurity.com",
   "private": false
 }
