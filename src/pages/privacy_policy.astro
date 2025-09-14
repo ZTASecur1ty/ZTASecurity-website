@@ -1,0 +1,146 @@
+---
+import AppLayout from "@layouts/AppLayout.astro";
+---
+
+<AppLayout
+  title="Privacy Policy - ZTASecurity"
+  description="Privacy Policy for ZTASecurity website and browser extension"
+>
+  <div class="prose prose-zinc dark:prose-invert max-w-none">
+    <h1 class="text-3xl font-bold mb-2">Privacy Policy</h1>
+    <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-8">Effective date: September 14, 2025</p>
+
+    <div class="space-y-8">
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Summary</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>We collect your <strong>IP address</strong>, <strong>DNS queries</strong>, <strong>active page URL</strong>, and <strong>page text (runtime-only)</strong> to assess website risk.</li>
+          <li><strong>Page text and other runtime signals are deleted within 24 hours</strong> and are not used for any purpose other than automated risk checks.</li>
+          <li>The only data we persist are <strong>domain-level risk scores</strong> (e.g., <code>example.com → score</code>) and <strong>self-reported domains</strong> you submit—neither is tied to you.</li>
+          <li>We <strong>do not sell, rent, or license personal information</strong> to anyone. We also <strong>do not retain, sell, rent, or license personal information</strong> beyond what is necessary for the runtime checks described here.</li>
+          <li><strong>No customer data is sent to third parties.</strong></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Information We Collect</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-medium mb-3">1) Runtime signals (short-lived; deleted within 24 hours)</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>IP address</strong> (of the requesting device or network egress)</li>
+              <li><strong>DNS queries</strong> needed to evaluate a site</li>
+              <li><strong>Active page URL</strong> (the address of the site you are visiting)</li>
+              <li><strong>Page text (runtime-only):</strong> the visible text of the page may be read by the extension to compute features that help detect malicious behavior. <em>We do not store raw page content beyond 24 hours, and we do not use it for any purpose other than automated risk assessment.</em></li>
+            </ul>
+            <p class="mt-3"><strong>Purpose:</strong> to detect, score, and help prevent potentially malicious activity in real time.</p>
+            <p><strong>Retention:</strong> these runtime signals are <strong>ephemeral</strong> and are <strong>deleted within 24 hours</strong> of collection.</p>
+            <p><strong>Human access:</strong> page text is evaluated automatically to compute a risk score; <strong>we do not manually review or otherwise “read” your page content</strong>, unless you voluntarily submit a domain report (see below).</p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-medium mb-3">2) Persisted records (non-personal)</h3>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><strong>Domain risk scores:</strong> domain-level entries like <code>domain → risk score</code>. <em>No user identifiers, IP addresses, or page text are stored with these scores.</em></li>
+              <li><strong>Self-reported domains:</strong> domains you manually report to us (e.g., false positives/negatives). Stored as domain strings and minimal metadata needed to review reports; <em>not tied to your identity</em>.</li>
+            </ul>
+            <p class="mt-3"><strong>Purpose:</strong> to improve detection quality, reduce false positives, and maintain historical risk assessments at the domain level.</p>
+            <p><strong>Retention:</strong> retained as needed for accuracy and product improvement. You can request removal of specific self-reported domains (see “Your Rights &amp; Choices”).</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">What We Don't Collect</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Form contents, passwords, or cookies.</li>
+          <li>Full browsing history beyond the single active tab URL needed at evaluation time.</li>
+          <li>Advertising identifiers for ad targeting.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">How We Use Information</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>To compute and display website risk scores in the extension (automated processing only).</li>
+          <li>To maintain and improve our domain-level maliciousness database.</li>
+          <li>To respond to your requests (e.g., review a self-reported domain).</li>
+          <li>To secure our services, prevent abuse, and debug issues.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Legal Bases (EEA/UK users)</h2>
+        <p class="mb-3">Where GDPR/UK GDPR applies, we process:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Ephemeral runtime signals based on <strong>legitimate interests</strong> (security, fraud prevention, product functionality).</li>
+          <li>Persisted domain scores/self-reports based on <strong>legitimate interests</strong> (maintaining an accurate risk registry).</li>
+        </ul>
+        <p class="mt-3">If we ever rely on consent (e.g., for optional features), we'll ask you clearly.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Sharing and Disclosure</h2>
+        <p class="mb-3"><strong>No customer data is sent to third parties.</strong> We do not sell, rent, or license personal information to any third party.</p>
+        <p>We may disclose information only if required by law or to protect the rights, safety, or security of our users or others.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Retention</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>IP/DNS/URL and page text (runtime data):</strong> deleted within <strong>24 hours</strong>.</li>
+          <li><strong>Domain scores &amp; self-reported domains:</strong> retained as needed for accuracy and auditability. If you ask us to remove a self-reported domain submission you made, we will do so unless we must retain it for legal or security reasons.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Security</h2>
+        <p>We use reasonable technical and organizational safeguards (e.g., transport encryption, access controls, least-privilege practices). No method of transmission or storage is 100% secure, but we aim to minimize retained personal data by design.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">International Transfers</h2>
+        <p>If data are processed outside your region, we implement appropriate safeguards (e.g., standard contractual clauses) where required by law.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Your Rights &amp; Choices</h2>
+        <p class="mb-3">Depending on your location, you may have rights to:</p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Access, correct, or delete your personal information.</li>
+          <li>Object to or restrict certain processing.</li>
+          <li>Withdraw consent where processing relies on consent.</li>
+          <li>Lodge a complaint with your data protection authority.</li>
+        </ul>
+        <p class="mt-3">To exercise rights or request deletion of a self-reported domain submission, contact us at <a href="mailto:contact@ztasecurity.com" class="text-blue-400 hover:text-blue-300">contact@ztasecurity.com</a>. We may need information to verify your request.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Children's Privacy</h2>
+        <p>Our extension is not intended for children under 18. We do not knowingly collect personal information from children.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Do Not Track</h2>
+        <p>We do not respond to browser "Do Not Track" signals because there is no consistent industry standard. We also do not use data for cross-site ad tracking.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Chrome Web Store Disclosure</h2>
+        <p>The extension requests only the permissions necessary to function (e.g., access to the active tab URL, limited page text read for runtime checks, and network context for security scoring). Data is used solely to provide the features described above and in accordance with the Chrome Web Store User Data Policy.</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Changes to This Policy</h2>
+        <p>We may update this Policy from time to time. If changes are material, we will take reasonable steps to notify you (e.g., update the "Effective date" and, where appropriate, provide an in-product notice).</p>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
+        <p><strong>Controller:</strong> ZTASecurity</p>
+        <p><strong>Email:</strong> <a href="mailto:contact@ztasecurity.com" class="text-blue-400 hover:text-blue-300">contact@ztasecurity.com</a></p>
+      </section>
+    </div>
+  </div>
+</AppLayout>

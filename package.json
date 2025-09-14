@@ -29,7 +29,7 @@
     "satori": "^0.10.14",
     "satori-html": "^0.3.2",
     "sharp": "^0.32.6",
-    "tsm": "^1.0.1"
+    "tsm": "^2.3.0"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.1",
