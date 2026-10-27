@@ -11,37 +11,25 @@ const index = posts.findIndex((post) => {
 
 const nextPost = posts[index + 1];
 const prevPost = posts[index - 1];
+const linkClass =
+  "group flex flex-1 flex-col rounded-xl border border-line bg-paper-50 p-5 text-sm transition-colors hover:border-line-strong";
 ---
 
-<aside class="flex flex-col sm:flex-row mt-10 gap-4 w-full">
-  {
-    prevPost && (
-      <a
-        href={`/blog/${prevPost.slug}/`}
-        class="group flex-1 flex flex-col grow text-sm p-4 rounded-lg border border-zinc-300 dark:border-zinc-700 dark:hover:border-blue-400 hover:border-blue-300 transition-all dark:hover:bg-blue-600/20 hover:bg-blue-100"
-      >
-        <p class="dark:text-zinc-400 text-zinc-600 mb-1 group-hover:dark:text-zinc-300 group-hover:text-zinc-700">
-          &larr; Previous post
-        </p>
-        <p class="font-semibold dark:text-zinc-300 text-zinc-700 group-hover:dark:text-blue-400 group-hover:text-blue-800">
-          {prevPost.data.title}
-        </p>
-      </a>
-    )
-  }
-  {
-    nextPost && (
-      <a
-        href={`/blog/${nextPost.slug}/`}
-        class="group flex-1 flex flex-col text-right grow text-sm p-4 rounded-lg border border-zinc-300 dark:border-zinc-700 dark:hover:border-blue-400 hover:border-blue-300 transition-all dark:hover:bg-blue-600/20 hover:bg-blue-100"
-      >
-        <p class="dark:text-zinc-400 text-zinc-600 mb-1 group-hover:dark:text-zinc-300 group-hover:text-zinc-700">
-          Next post &rarr;
-        </p>
-        <p class="font-semibold dark:text-zinc-300 text-zinc-700 group-hover:dark:text-blue-400 group-hover:text-blue-800">
-          {nextPost.data.title}
-        </p>
-      </a>
-    )
-  }
-</aside>
+{
+  (prevPost || nextPost) && (
+    <nav class="mt-16 flex w-full flex-col gap-4 sm:flex-row" aria-label="More posts">
+      {prevPost && (
+        <a href={`/blog/${prevPost.slug}/`} class={linkClass}>
+          <span class="mb-1 text-ink-500">&larr; Previous</span>
+          <span class="font-medium text-ink">{prevPost.data.title}</span>
+        </a>
+      )}
+      {nextPost && (
+        <a href={`/blog/${nextPost.slug}/`} class={`${linkClass} text-right`}>
+          <span class="mb-1 text-ink-500">Next &rarr;</span>
+          <span class="font-medium text-ink">{nextPost.data.title}</span>
+        </a>
+      )}
+    </nav>
+  )
+}

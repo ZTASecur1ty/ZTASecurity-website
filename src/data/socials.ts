@@ -1,13 +1,23 @@
 export const tag = "@ztasecurity";
-export const author = "ZTASecurity";
+export const author = "ZTA Security";
+export const email = "contact@ztasecurity.com";
+
+export const socials = {
+  github: "https://github.com/ZTASecur1ty",
+  linkedin: "https://www.linkedin.com/company/ztasecurity",
+  bluesky: "https://bsky.app/profile/ztasecurity.bsky.social",
+};
+
+export const safeBrowsingUrl =
+  "https://chromewebstore.google.com/detail/safe-browsing/gddfnfndmpecobmliekmbilogippdnkh";
 
 export const defaultMeta = {
-  title: "ZTASecurity",
+  title: "ZTA Security",
   description:
-    "Cybersecurity knowledge for developers",
-  keywords: ["ZTASecurity", "software security"],
+    "Non-profit cybersecurity for development teams: security training, compliance frameworks, and zero-trust implementation.",
+  keywords: ["ZTASecurity", "ZTA Security", "software security", "zero trust"],
   ogImage: {
     src: "/banner.png",
-    alt: "ZTASecurity - Home",
+    alt: "ZTA Security",
   },
 };

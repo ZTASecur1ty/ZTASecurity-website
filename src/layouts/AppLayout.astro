@@ -1,9 +1,11 @@
 ---
 import Link from "@components/Link.astro";
-import { author, defaultMeta } from "@data/socials";
+import Logo from "@components/Logo.astro";
+import Footer from "@components/Footer.astro";
+import { author, defaultMeta, email } from "@data/socials";
 import navigation from "@data/navigation.json";
 import "@fontsource-variable/inter";
-import Footer from "@components/Footer.astro";
+import "@fontsource-variable/source-serif-4";
 import "@styles/global.css";
 
 interface Props {
@@ -19,7 +21,7 @@ interface Props {
 }
 
 const {
-  title,
+  title = defaultMeta.title,
   description = defaultMeta.description,
   ogImage = defaultMeta.ogImage,
   pubDate,
@@ -33,18 +35,15 @@ const date = pubDate || lastmod || new Date();
 ---
 
 <!doctype html>
-<html
-  lang="en"
-  class="overflow-x-hidden break-words text-zinc-900 dark:text-zinc-100 dark"
->
+<html lang="en" class="overflow-x-hidden break-words bg-paper text-ink">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{title || defaultMeta.title}</title>
+    <title>{title}</title>
     <link rel="canonical" href={canonicalURL} />
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta property="og:type" content="blog" />
+    <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -60,90 +59,64 @@ const date = pubDate || lastmod || new Date();
     <meta name="twitter:image" content={ogImageURL} />
     <meta name="twitter:image:alt" content={ogImage.alt} />
     <meta name="twitter:domain" content="ztasecurity.com" />
-    <meta name="theme-color" content="#60A5FA" />
-    <meta name="msapplication-TileColor" content="#60A5FA" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="apple-mobile-web-app-title" content={title} />
-    <meta name="application-name" content={title} />
+    <meta name="theme-color" content="#F0EEE6" />
+    <meta name="msapplication-TileColor" content="#F0EEE6" />
+    <meta name="color-scheme" content="light" />
+    <meta name="apple-mobile-web-app-title" content={author} />
+    <meta name="application-name" content={author} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="/apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="/apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="/apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="/apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="/android-icon-192x192.png"
-    />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
     {tags && tags.map((tag) => <meta property="article:tag" content={tag} />)}
     <meta name="author" content={author} />
-    <meta
-      name="pubdate"
-      content={pubDate ||
-        "Fri Oct 20 2023 03:00:00 GMT+0300 (Eastern European Summer Time)"}
-    />
-    <meta name="date" content={date} />
-    <meta name="keywords" content={tags} />
+    {pubDate && <meta name="pubdate" content={pubDate.toISOString()} />}
+    <meta name="date" content={date.toISOString()} />
+    <meta name="keywords" content={tags.join(", ")} />
   </head>
   <body
-    class="dark:bg-zinc-900 bg-zinc-100 antialiased selection:bg-blue-300 selection:text-zinc-900 dark:selection:bg-blue-600 dark:selection:text-white 2xl:text-lg"
+    class="flex min-h-screen flex-col antialiased selection:bg-ink selection:text-paper"
   >
-    <div
-      style={{
-        background:
-          "linear-gradient(45deg, rgba(96, 122, 250, 0) 20.79%, rgba(96, 122, 250, 0.09) 40.92%, rgba(255,255,255, 0) 70.35%)",
-      }}
-      class="fixed top-0 left-0 w-full h-full pointer-events-none -z-1"
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-ink focus:px-3 focus:py-2 focus:text-sm focus:text-paper"
+      >Skip to content</a
     >
-    </div>
-    <nav
-      class="sticky top-0 z-10 lg:backdrop-blur-lg bg-zinc-900 bg-opacity-90 lg:bg-opacity-50 py-4 px-6 lg:px-0"
+    <header
+      class="sticky top-0 z-20 border-b border-line bg-paper/90 backdrop-blur"
     >
-      <ul class="flex justify-center space-x-4 text-sm">
-        {
-          navigation.map((item) => (
-            <li>
-              <Link {...item} addClass="font-lg font-medium" />
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <main
-      class="px-6 lg:px-0 mx-auto max-w-3xl flex flex-col min-h-screen py-6"
-      id="main-content"
-    >
+      <nav
+        class="mx-auto flex h-16 max-w-5xl items-center justify-between px-6"
+        aria-label="Main"
+      >
+        <a href="/" aria-label="ZTA Security home">
+          <Logo />
+        </a>
+        <div class="flex items-center gap-6 sm:gap-8">
+          <ul class="flex items-center gap-6 sm:gap-8">
+            {
+              navigation.map((item) => (
+                <li class={item.href.includes("#") ? "hidden sm:block" : ""}>
+                  <Link {...item} />
+                </li>
+              ))
+            }
+          </ul>
+          <a
+            href={`mailto:${email}`}
+            class="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
+          >
+            Contact
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main class="flex-1" id="main-content">
       <slot />
-      <Footer />
     </main>
+    <Footer />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GQ8HDJ8L1"
     ></script>

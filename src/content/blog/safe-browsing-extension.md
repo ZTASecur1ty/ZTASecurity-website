@@ -8,8 +8,6 @@ heroAlt: "Illustration of a browser window with a shield"
 tags: ["chrome-extension", "privacy", "security", "product"]
 ---
 
-# Safe Browsing — a tiny shield for safer browsing
-
 We’re excited to introduce **Safe Browsing**, a lightweight Chrome extension built to help you browse with confidence. It provides clear alerts when a site may be unsafe — all while keeping your privacy front and center. No tracking, no noise, just safer browsing.
 
 [→ Install Safe Browsing on Chrome](https://chromewebstore.google.com/detail/safe-browsing/gddfnfndmpecobmliekmbilogippdnkh?hl=en)

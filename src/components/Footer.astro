@@ -1,31 +1,65 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from "astro-icon";
+import Logo from "@components/Logo.astro";
+import { email, socials } from "@data/socials";
+
+const year = new Date().getFullYear();
+
+const links = [
+  { href: "/blog/", text: "Blog" },
+  { href: "/privacy_policy/", text: "Privacy Policy" },
+  { href: `mailto:${email}`, text: email },
+];
+
+const icons = [
+  { href: socials.github, label: "GitHub", icon: "mdi:github" },
+  { href: socials.linkedin, label: "LinkedIn", icon: "mdi:linkedin" },
+];
 ---
 
-<script>
-    const currentYear = new Date().getFullYear();
-    const yearElement = document.getElementById('year');
-    yearElement.innerText = currentYear;
-</script>
-
-<footer class="flex items-center text-zinc-400 mt-7 justify-center h-16 w-full flex-col gap-2">
-    <div class="text-sm text-center cursor-default">
-        2021 - <span id="year"></span>
-        &copy;&nbsp;<a href="https://www.linkedin.com/company/ztasecurity" class="text-zinc-200 hover:text-zinc-500">ZTASecurity</a>
+<footer class="mt-24 border-t border-line">
+  <div
+    class="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-10 sm:flex-row sm:items-start sm:justify-between"
+  >
+    <div class="space-y-3">
+      <a href="/" aria-label="ZTA Security home"><Logo /></a>
+      <p class="text-sm text-ink-500">
+        &copy; 2021&ndash;{year} ZTA Security. All rights reserved.
+      </p>
     </div>
-    <p class="text-sm text-center flex items-center justify-center mt-1 gap-4">
-        <a href="mailto:contact@ztasecurity.com" class="text-zinc-200 hover:text-zinc-500" title="Email" rel="noopener noreferrer">
-            <Icon name="mdi:email" class="w-4 h-4" />
-        </a>
-        <a href="https://github.com/ZTASecur1ty" class="text-zinc-200 hover:text-zinc-500" title="GitHub" rel="noopener noreferrer">
-            <Icon name="mdi:github" class="w-4 h-4" />
-        </a>
-    </p>
-    <p class="text-xs text-center mt-2">
-        <a href="/privacy_policy" class="text-zinc-200 hover:text-zinc-500">Privacy Policy</a>
-    </p>
-    <p>
-        All rights reserved.
-    </p>
-
+    <div class="flex flex-col gap-4 sm:items-end">
+      <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        {
+          links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-ink-500 transition-colors hover:text-ink"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="flex gap-4">
+        {
+          icons.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="text-ink-500 transition-colors hover:text-ink"
+                aria-label={item.label}
+                title={item.label}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name={item.icon} class="h-5 w-5" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </footer>

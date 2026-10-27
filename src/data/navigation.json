@@ -1,7 +1,11 @@
 [
   {
-    "href": "/",
-    "text": "Home"
+    "href": "/#services",
+    "text": "Services"
+  },
+  {
+    "href": "/#safe-browsing",
+    "text": "Safe Browsing"
   },
   {
     "href": "/blog/",
