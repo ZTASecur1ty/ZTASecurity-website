@@ -59,15 +59,15 @@ const date = pubDate || lastmod || new Date();
     <meta name="twitter:image" content={ogImageURL} />
     <meta name="twitter:image:alt" content={ogImage.alt} />
     <meta name="twitter:domain" content="ztasecurity.com" />
-    <meta name="theme-color" content="#F0EEE6" />
-    <meta name="msapplication-TileColor" content="#F0EEE6" />
+    <meta name="theme-color" content="#175E96" />
+    <meta name="msapplication-TileColor" content="#175E96" />
     <meta name="color-scheme" content="light" />
     <meta name="apple-mobile-web-app-title" content={author} />
     <meta name="application-name" content={author} />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="follow, index" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
     {tags && tags.map((tag) => <meta property="article:tag" content={tag} />)}
@@ -106,7 +106,7 @@ const date = pubDate || lastmod || new Date();
           </ul>
           <a
             href={`mailto:${email}`}
-            class="rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-colors hover:bg-ink-700"
+            class="rounded-full bg-brand px-4 py-2 text-sm font-medium text-paper transition-colors hover:bg-brand-700"
           >
             Contact
           </a>

@@ -1,31 +1,15 @@
 ---
 interface Props {
   class?: string;
-  wordmark?: boolean;
 }
 
-const { class: className, wordmark = true } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<span class:list={["inline-flex items-center gap-2.5 text-ink", className]}>
-  <svg
-    viewBox="4 2 56 60"
-    class="h-7 w-auto shrink-0"
-    fill="currentColor"
-    aria-hidden="true"
-  >
-    <path
-      fill-rule="evenodd"
-      d="M32 4c7 3.6 14.2 5.8 22 6.6V30c0 14.2-9.4 24.6-22 30C19.4 54.6 10 44.2 10 30V10.6C17.8 9.8 25 7.6 32 4Zm-11.5 13v4.8h16L20.5 37.2V42h23v-4.8H27.5l16-15.4V17h-23Z"
-    ></path>
-  </svg>
-  {
-    wordmark ? (
-      <span class="font-serif text-xl font-medium tracking-tight">
-        ZTA Security
-      </span>
-    ) : (
-      <span class="sr-only">ZTA Security</span>
-    )
-  }
-</span>
+<img
+  src="/ZTA-logo.png"
+  alt="ZTA Security"
+  width="1510"
+  height="566"
+  class:list={["h-9 w-auto", className]}
+/>

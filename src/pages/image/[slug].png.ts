@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import satori from 'satori';
 import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
@@ -14,8 +16,10 @@ const dimensions = {
 const INK = '#141413';
 const MUTED = '#5E5D59';
 const PAPER = '#F0EEE6';
-const LOGO_PATH =
-  'M32 4c7 3.6 14.2 5.8 22 6.6V30c0 14.2-9.4 24.6-22 30C19.4 54.6 10 44.2 10 30V10.6C17.8 9.8 25 7.6 32 4Zm-11.5 13v4.8h16L20.5 37.2V42h23v-4.8H27.5l16-15.4V17h-23Z';
+// Cropped, transparent ZTA lockup (1510x566).
+const LOGO_DATA_URI =
+  'data:image/png;base64,' +
+  fs.readFileSync(path.join(process.cwd(), 'public/ZTA-logo.png')).toString('base64');
 
 interface Props {
   title: string;
@@ -31,8 +35,7 @@ export async function GET(context: APIContext) {
   const markup = html`
     <div tw="flex flex-col w-full h-full p-20 justify-between" style="background:${PAPER};color:${INK};font-family:Inter;">
       <div tw="flex items-center">
-        <svg width="48" height="52" viewBox="4 2 56 60"><path fill="${INK}" fill-rule="evenodd" d="${LOGO_PATH}" /></svg>
-        <div tw="flex ml-4 text-4xl" style="font-family:Serif;letter-spacing:-0.02em;">ZTA Security</div>
+        <img width="160" height="60" src="${LOGO_DATA_URI}" />
       </div>
       <div tw="flex flex-col">
         <div tw="flex text-2xl" style="color:${MUTED};">${date}</div>

@@ -20,6 +20,12 @@ module.exports = {
           DEFAULT: "#DEDCD1",
           strong: "#C9C6BA",
         },
+        brand: {
+          DEFAULT: "#175E96",
+          700: "#124A76",
+          100: "#DCE8F2",
+          50: "#EEF4F9",
+        },
       },
       fontFamily: {
         sans: ['"Inter Variable"', "Inter", ...defaultTheme.fontFamily.sans],
